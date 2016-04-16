@@ -14,9 +14,6 @@ class ClarifyRecognitionViewController: UIViewController, UIImagePickerControlle
    //yelp - convert key words to restaurant
     
     
-    //AFNetworking
-    //BDOOffAuthManager
-    
     private lazy var client : ClarifaiClient = ClarifaiClient(appID: Credentials.clientID(), appSecret: Credentials.clientSecret())
     
     
@@ -25,10 +22,10 @@ class ClarifyRecognitionViewController: UIViewController, UIImagePickerControlle
     
     
     @IBAction func likeButtonPressed(sender: UIButton) {
+        //converting to jpeg
         let jpeg = UIImageJPEGRepresentation(imageView.image!, 0.7)
         
-        
-    
+        //generating tags!
         client.recognizeJpegs([jpeg!]) { (results, error) in
             if error != nil {
                 print("Error: \(error)\n")
@@ -39,10 +36,8 @@ class ClarifyRecognitionViewController: UIViewController, UIImagePickerControlle
             }
 
         }
-        
-        
-        
-        
+    
+        //generate random image
        imageView.image = UIImage(named: "Image\(arc4random_uniform(3) + 1)")
         
         
@@ -51,6 +46,7 @@ class ClarifyRecognitionViewController: UIViewController, UIImagePickerControlle
     }
     
     @IBAction func dislikeButtonPressed(sender: UIButton) {
+        //do nothing (no tags), generate image
        imageView.image = UIImage(named: "Image\(arc4random_uniform(3) + 1)")
         
     }

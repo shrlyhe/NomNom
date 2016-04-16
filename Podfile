@@ -5,7 +5,7 @@
 
 target 'NomNom' do
 
-pod ' BDBOAuth1Manager '
+pod 'BDBOAuth1Manager'
 
 end
 

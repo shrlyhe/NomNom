@@ -5,7 +5,7 @@
 
 target 'ClarifaiAPITest' do
 
-pod ' BDBOAuth1Manager '
+pod 'BDBOAuth1Manager'
 
 end
 
